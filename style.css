@@ -932,9 +932,71 @@ footer {
   .nav-cta {
     display: none;
   }
+
+  /* Mobile nav dropdown */
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 0;
+    z-index: 99;
+  }
+  .nav-links.mobile-open li {
+    width: 100%;
+  }
+  .nav-links.mobile-open li a {
+    display: block;
+    padding: 0.85rem 6%;
+    font-size: 1rem;
+    color: var(--white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s;
+  }
+  .nav-links.mobile-open li:last-child a {
+    border-bottom: none;
+  }
+  .nav-links.mobile-open li a:hover {
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--trust-blue);
+  }
+
+  /* Hamburger animasi saat aktif */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .hamburger span {
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+  }
+
+  /* Fix tombol CTA di section contact */
+  #contact .btn-primary {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
   .hamburger {
     display: flex;
   }
+
   .about-grid {
     grid-template-columns: 1fr;
   }

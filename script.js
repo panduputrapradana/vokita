@@ -1,4 +1,4 @@
-      // Scroll animations
+// Scroll animations
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -21,13 +21,30 @@
         if (!isOpen) item.classList.add("open");
       }
 
-      // Hamburger (basic)
+      // Hamburger — toggle mobile nav
       function toggleMenu() {
         const links = document.querySelector(".nav-links");
-        if (links)
-          links.style.display =
-            links.style.display === "flex" ? "none" : "flex";
+        const hamburger = document.querySelector(".hamburger");
+        if (!links) return;
+        const isOpen = links.classList.contains("mobile-open");
+        if (isOpen) {
+          links.classList.remove("mobile-open");
+          hamburger.classList.remove("active");
+        } else {
+          links.classList.add("mobile-open");
+          hamburger.classList.add("active");
+        }
       }
+
+      // Tutup menu saat link nav diklik
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          const links = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".hamburger");
+          links.classList.remove("mobile-open");
+          hamburger.classList.remove("active");
+        });
+      });
 
       // Navbar scroll effect
       window.addEventListener("scroll", () => {
